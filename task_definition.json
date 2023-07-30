@@ -1,26 +1,24 @@
-[
-  {
-    "family": "worker",
-    "networkMode": "awsvpc",
-    "requiresCompatibilities": [
-      "EC2"
-    ],
-    "containerDefinitions": [
-      {
-        "name": "worker",
-        "image": "PLACEHOLDER",
-        "cpu": 256,
-        "memory": 512,
-        "portMappings": [
-          {
-            "containerPort": 8082,
-            "hostPort": 8082,
-            "protocol": "tcp",
-            "appProtocol": "http"
-          }
-        ],
-        "essential": true
-      }
-    ]
-  }
-]
+{
+  "family": "worker",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "containerDefinitions": [
+    {
+      "name": "worker",
+      "image": "PLACEHOLDER",
+      "cpu": 256,
+      "memory": 512,
+      "portMappings": [
+        {
+          "containerPort": 8082,
+          "hostPort": 8082,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true
+    }
+  ]
+}
