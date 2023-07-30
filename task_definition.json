@@ -1,19 +1,25 @@
 [
   {
-    "image": "$PLACEHOLDER",
-    "family": "frontend",
-    "essential": true,
-    "memory": 512,
-    "name": "worker",
+    "family": "worker",
     "networkMode": "awsvpc",
-    "cpu": 256,
     "requiresCompatibilities": [
       "EC2"
     ],
-    "portMappings": [
+    "containerDefinitions": [
       {
-        "containerPort": 8082,
-        "hostPort": 8082
+        "name": "worker",
+        "image": "PLACEHOLDER",
+        "cpu": 256,
+        "memory": 512,
+        "portMappings": [
+          {
+            "containerPort": 8082,
+            "hostPort": 8082,
+            "protocol": "tcp",
+            "appProtocol": "http"
+          }
+        ],
+        "essential": true
       }
     ]
   }
