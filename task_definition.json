@@ -1,0 +1,20 @@
+[
+  {
+    "image": "$PLACEHOLDER",
+    "family": "frontend",
+    "essential": true,
+    "memory": 512,
+    "name": "worker",
+    "networkMode": "awsvpc",
+    "cpu": 256,
+    "requiresCompatibilities": [
+      "EC2"
+    ],
+    "portMappings": [
+      {
+        "containerPort": 8082,
+        "hostPort": 8082
+      }
+    ]
+  }
+]
