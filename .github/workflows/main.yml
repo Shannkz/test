@@ -10,7 +10,7 @@ env:
   ECR_REPOSITORY: events-ecr-dev
   ECS_SERVICE: allevents-worker
   ECS_CLUSTER: allevents-dev-cluster
-  ECS_TASK_DEFINITION: "./task_definition.json"
+  ECS_TASK_DEFINITION: "task_definition.json"
   CONTAINER_NAME: worker
   
 jobs:
