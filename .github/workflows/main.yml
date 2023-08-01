@@ -17,6 +17,7 @@ jobs:
   deploy:
     name: Build Docker Image and push it to ECR
     runs-on: ubuntu-latest
+    environment: AllEvents-Dev
     steps:
         - name: Checkout
           uses: actions/checkout@v3
