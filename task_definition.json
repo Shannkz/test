@@ -12,22 +12,13 @@
       "memory": 512,
       "portMappings": [
         {
-          "containerPort": 8082,
-          "hostPort": 8082,
+          "containerPort": 3000,
+          "hostPort": 3000,
           "protocol": "tcp",
           "appProtocol": "http"
         }
       ],
-      "essential": true,
-      "logConfiguration": {
-        "logDriver": "json-file",
-        "options": {
-          "awslogs-create-group": "true",
-          "awslogs-group": "awslogs-fe-events",
-          "awslogs-region": "us-central-1",
-          "awslogs-stream-prefix": "awslogs-events"
-        }
-      }
+      "essential": true
     }
   ]
 }
