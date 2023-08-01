@@ -12,8 +12,8 @@
       "memory": 512,
       "portMappings": [
         {
-          "containerPort": 3000,
-          "hostPort": 3000,
+          "containerPort": 8082,
+          "hostPort": 8082,
           "protocol": "tcp",
           "appProtocol": "http"
         }
