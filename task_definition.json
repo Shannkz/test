@@ -18,7 +18,16 @@
           "appProtocol": "http"
         }
       ],
-      "essential": true
+      "essential": true,
+      "logConfiguration": {
+        "logDriver": "json-file",
+        "options": {
+          "awslogs-create-group": "true",
+          "awslogs-group": "awslogs-fe-events",
+          "awslogs-region": "us-central-1",
+          "awslogs-stream-prefix": "awslogs-events"
+        }
+      }
     }
   ]
 }
