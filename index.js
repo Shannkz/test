@@ -1,5 +1,5 @@
 const userAction = async () => {
-  const response = await fetch('httpbin.events.priv-dns.local');
+  const response = await fetch('http://httpbin.localtest.local/get');
   const myJson = await response.text(); //extract JSON from the http response
   // do something with myJson
 
