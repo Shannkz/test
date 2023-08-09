@@ -31,7 +31,7 @@ jobs:
         node-version: 18
     
     - name: Install dependencies
-      run: npm install
+      run: cd react-app && npm install
 
     - name: Deploy static site to S3 bucket
       run: aws s3 sync ./react-app s3://${{ env.BUCKET_NAME }} --delete --exclude ".*"
