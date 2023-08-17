@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Install dependencies
+# pip install --no-cache-dir -r requirements.txt
+echo "Running python scripts to start app server..."
 # Prepare database migrations
 python manage.py makemigrations
 
