@@ -14,7 +14,5 @@ ENV DJANGO_SUPERUSER_EMAIL=test@admin.ro
 
 EXPOSE 8000
 
-RUN ["python", "manage.py", "makemigrations"]
-RUN ["python", "manage.py", "migrate"]
-RUN ["python", "manage.py", "createsuperuser", "--noinput", "--first_name", "dragos", "--last_name", "dragos"]
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+RUN chmod +x /start.sh
+CMD ["/start.sh"]
