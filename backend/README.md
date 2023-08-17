@@ -23,6 +23,10 @@ insert the database credentials into .env.example
 Start the server
 
 ```bash
+python manage.py makemigrations
+```
+
+```bash
 python manage.py runserver
 ```
 
