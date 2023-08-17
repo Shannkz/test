@@ -14,5 +14,5 @@ ENV DJANGO_SUPERUSER_EMAIL=test@admin.ro
 
 EXPOSE 8000
 
-RUN chmod +x /start.sh
-CMD ["/start.sh"]
+RUN chmod +x ./start.sh
+CMD ["/bin/bash start.sh"]
