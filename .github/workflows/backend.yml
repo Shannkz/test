@@ -60,4 +60,4 @@ jobs:
       run: |
         INSTANCE_ID=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters 'Name=tag:Name,Values=allevents-django-ec2' --output text)
         echo $INSTANCE_ID
-        aws ssm send-command --instance-ids $INSTANCE_ID --document-name "AWS-RunShellScript" --output text --parameters '{"commands":["#!/bin/bash","docker pull $IMAGE_ID","docker run -p 8000:8000 -d $IMAGE_ID"]}'
+        aws ssm send-command --instance-ids $INSTANCE_ID --document-name "AWS-RunShellScript" --output text --parameters '{"commands":["#!/bin/bash","docker pull ${{ env.IMAGE_ID }}","docker run -p 8000:8000 -d ${{ env.IMAGE_ID }}"]}'
