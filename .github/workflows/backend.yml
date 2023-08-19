@@ -39,6 +39,9 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
+      with:
+        mask-password: true
+        skip-logout: false
 
     - name: Build and push the tagged docker image to Amazon ECR
       id: build-image
@@ -50,3 +53,11 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+        echo "IMAGE_ID=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
+
+    - name: SSM into machine and start container
+      id: deploy
+      run: |
+        INSTANCE_ID = $(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters 'Name=tag:Purpose,Values=Django' --output text)
+        echo $INSTANCE_ID
+        aws ssm send-command --instance-ids $INSTANCE_ID --document-name "AWS-RunShellScript" --output text --parameters '{"commands":["#!/bin/bash","docker pull $IMAGE_ID","docker run -p 8000:8000 -d $IMAGE_ID"]}'

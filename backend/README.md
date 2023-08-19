@@ -16,7 +16,7 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
-launch pgadmin4 and create database credentails
+launch pgadmin4 and create database credentials
 
 insert the database credentials into .env.example
 
