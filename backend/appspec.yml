@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+  - source: django_docker_image.tar.gz
+    destination: /home/ec2-user
+hooks:
+  ApplicationStart:
+    - location: scripts/docker-start.sh
+      timeout: 300
+      runas: ec2-user
