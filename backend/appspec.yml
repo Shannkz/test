@@ -13,6 +13,6 @@ hooks:
       timeout: 180
       runas: ec2-user
   ApplicationStart:
-    - location: scripts/start_container.sh
+    - location: scripts/docker_start.sh
       timeout: 180
       runas: ec2-user
