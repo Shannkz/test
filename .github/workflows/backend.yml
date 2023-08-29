@@ -48,7 +48,6 @@ jobs:
         cd backend
         docker build -t django-backend .
         mkdir deployable
-        mkdir deployable/scripts
         docker save django-backend | gzip -c > deployable/django_docker_image.tar.gz
         cp appspec.yml deployable/
         cp -r scripts deployable/

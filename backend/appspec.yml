@@ -10,9 +10,9 @@ hooks:
   #     runas: ec2-user
   AfterInstall:
     - location: scripts/docker_load.sh
-      timeout: 10
+      timeout: 180
       runas: ec2-user
   ApplicationStart:
     - location: scripts/start_container.sh
-      timeout: 10
+      timeout: 180
       runas: ec2-user
