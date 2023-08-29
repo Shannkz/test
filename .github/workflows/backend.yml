@@ -51,7 +51,7 @@ jobs:
         mkdir deployable/scripts
         docker save django-backend | gzip -c > deployable/django_docker_image.tar.gz
         cp appspec.yml deployable/
-        cp -r scripts deployable/scripts/
+        cp -r scripts deployable/
 
       # Deploy push to AWS S3
     - name: AWS Deploy push
