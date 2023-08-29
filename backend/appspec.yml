@@ -4,7 +4,15 @@ files:
   - source: django_docker_image.tar.gz
     destination: /home/ec2-user
 hooks:
+  # ApplicationStop:
+  #   - location: scripts/docker_kill.sh
+  #     timeout: 20
+  #     runas: ec2-user
+  AfterInstall:
+    - location: scripts/docker_load.sh
+      timeout: 10
+      runas: ec2-user
   ApplicationStart:
-    - location: docker-start.sh
-      timeout: 300
+    - location: scripts/start_container.sh
+      timeout: 10
       runas: ec2-user
