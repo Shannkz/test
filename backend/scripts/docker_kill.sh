@@ -7,5 +7,8 @@ if [ "$(docker ps -a -q -f name=django-backend)" ]; then
         docker rm django-backend
     fi
     # Kill the container if it is running to prepare for fresh install
+    echo "Django backend container found, killing..."
     docker rm -f django-backend
+else
+echo "No Django backend container could be found"
 fi

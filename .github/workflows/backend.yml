@@ -33,7 +33,7 @@ jobs:
       run: |
         cd backend/my_site
         touch .env
-        echo $DOT_ENV_FILE >> .env
+        echo $DOT_ENV_FILE | tr " " "\n" >> .env
         echo "cat .env"
         cat .env
 
