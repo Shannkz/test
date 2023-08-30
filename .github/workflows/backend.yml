@@ -28,10 +28,12 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Create and populate .env file
+      env:
+        DOT_ENV_FILE: ${{ secrets.DOT_ENV }}
       run: |
         cd backend/my_site
         touch .env
-        echo ${{ secrets.DOT_ENV }} >> .env
+        echo $DOT_ENV_FILE >> .env
         echo "cat .env"
         cat .env
 
